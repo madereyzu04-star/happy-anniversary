@@ -11,35 +11,65 @@
 
 <body>
 
-    <div class="container">
+    <!-- Hati yang bergerak -->
+    <div class="hearts">
+        <span>❤️</span>
+        <span>💗</span>
+        <span>💕</span>
+        <span>❤️</span>
+        <span>💖</span>
+        <span>💗</span>
+        <span>💕</span>
+    </div>
+
+    <!-- Halaman pembuka -->
+    <div id="pembuka" class="container">
+
+        <div class="icon">💌</div>
 
         <h1>Happy Anniversary ❤️</h1>
 
         <p>
-            Selamat hari jadi!
-            <br>
-            Semoga hari ini menjadi salah satu kenangan
-            yang indah untuk kita.
+            Ada sesuatu yang ingin aku sampaikan...
+        </p>
+
+        <button onclick="bukaWebsite()">
+            Buka 💕
+        </button>
+
+    </div>
+
+
+    <!-- Halaman utama -->
+    <div id="utama" class="container hidden">
+
+        <h1>Untuk Kamu ❤️</h1>
+
+        <p>
+            Selamat Anniversary!
+            <br><br>
+            Terima kasih sudah menjadi bagian
+            dari cerita yang indah ini.
         </p>
 
         <button onclick="bukaPesan()">
-            Buka Pesan 💌
+            Lanjut 💌
         </button>
 
-        <div id="pesan" style="display: none;">
+        <div id="pesan" class="pesan hidden">
 
-            <h2>Untuk Kamu ❤️</h2>
+            <h2>💖 Terima Kasih 💖</h2>
 
             <p>
-                Terima kasih sudah menjadi bagian
-                dari cerita yang indah ini.
+                Semoga kita selalu memiliki banyak
+                kenangan indah untuk diceritakan.
             </p>
 
         </div>
 
     </div>
 
-    <!-- Menghubungkan JavaScript -->
+
     <script src="script.js"></script>
 
 </body>
