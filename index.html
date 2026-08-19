@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Happy Anniversary</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Anniversary ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Happy Anniversary ❤️</h1>
-    <p>Selamat hari jadi!</p>
+
+    <div class="container">
+
+        <h1>Happy Anniversary ❤️</h1>
+
+        <p>
+            Selamat hari jadi!
+            <br>
+            Semoga hari ini menjadi salah satu kenangan
+            yang indah untuk kita.
+        </p>
+
+        <button onclick="bukaPesan()">
+            Buka Pesan 💌
+        </button>
+
+        <div id="pesan" style="display: none;">
+            <h2>Untuk Kamu ❤️</h2>
+
+            <p>
+                Terima kasih sudah menjadi bagian
+                dari cerita yang indah ini.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        function bukaPesan() {
+            document.getElementById("pesan").style.display = "block";
+        }
+    </script>
+
 </body>
 </html>
