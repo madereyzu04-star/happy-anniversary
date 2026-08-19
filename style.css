@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
 
 body {
     min-height: 100vh;
@@ -16,157 +21,245 @@ body {
 
     font-family: Arial, sans-serif;
 
-    background: linear-gradient(
-        135deg,
-        #ff758c,
-        #ff7eb3,
-        #ff9a9e
-    );
+    /* Background pink lembut */
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(255, 255, 255, 0.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #ff758c 0%,
+            #ff7eb3 50%,
+            #ff9a9e 100%
+        );
 
     overflow: hidden;
 }
 
 
-/* =========================
-   HALAMAN
-========================= */
+/* =====================================
+   SEMUA HALAMAN
+===================================== */
 
 .halaman {
     position: relative;
     z-index: 10;
+
+    width: min(92vw, 620px);
 }
 
 
-/* =========================
-   KARTU
-========================= */
-
-.container {
-    width: min(90%, 600px);
-
-    padding: 50px 30px;
-
-    text-align: center;
-
-    background: rgba(255, 255, 255, 0.94);
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.2);
-
-    animation: muncul 0.8s ease;
-}
-
-
-/* Memastikan elemen hidden benar-benar tidak tampil */
+/* Elemen dengan atribut hidden
+   benar-benar disembunyikan */
 
 [hidden] {
     display: none !important;
 }
 
 
-/* =========================
+/* =====================================
+   KARTU
+===================================== */
+
+.container {
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: rgba(255, 248, 251, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(160, 30, 80, 0.22);
+
+    animation: muncul 0.8s ease;
+}
+
+
+/* =====================================
    JUDUL
-========================= */
+===================================== */
 
 h1 {
-    color: #ff4f81;
+    color: #ff4081;
 
-    font-size: clamp(30px, 6vw, 42px);
+    font-size: clamp(30px, 5vw, 46px);
+
+    line-height: 1.2;
 
     margin-bottom: 20px;
 }
 
 
-/* =========================
+/* =====================================
    PARAGRAF
-========================= */
+===================================== */
 
 p {
     color: #555;
 
-    font-size: 20px;
+    font-size: clamp(17px, 2.5vw, 20px);
 
     line-height: 1.6;
 
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 
-/* =========================
+/* =====================================
    IKON SURAT
-========================= */
+===================================== */
 
 .icon {
-    font-size: 70px;
+    font-size: clamp(50px, 8vw, 70px);
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 
-    animation: berdenyut 1.5s infinite;
+    animation: berdenyut 1.5s ease-in-out infinite;
 }
 
 
-/* =========================
+/* =====================================
    TOMBOL
-========================= */
+===================================== */
 
 button {
-    padding: 14px 35px;
+    display: inline-block;
+
+    padding: 14px 34px;
 
     border: none;
 
-    border-radius: 30px;
+    border-radius: 50px;
 
-    background: #ff4f81;
+    background: #ff4081;
 
     color: white;
 
     font-size: 18px;
+    font-weight: bold;
 
     cursor: pointer;
 
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease;
-}
+    box-shadow:
+        0 8px 20px rgba(255, 64, 129, 0.3);
 
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
 
 button:hover {
-    transform: scale(1.08);
+    transform: translateY(-3px) scale(1.04);
 
-    background: #ff2f6d;
+    background: #f50057;
+
+    box-shadow:
+        0 12px 25px rgba(255, 64, 129, 0.4);
 }
-
 
 button:active {
     transform: scale(0.96);
 }
 
 
-/* =========================
-   PESAN
-========================= */
+/* =====================================
+   PESAN "TERIMA KASIH"
+===================================== */
 
 .pesan {
     margin-top: 30px;
 
-    padding-top: 20px;
+    padding-top: 25px;
 
     border-top: 2px solid #ffb6c1;
+
+    animation: pesanMuncul 0.7s ease;
 }
 
-
 .pesan h2 {
-    color: #ff4f81;
+    color: #ff4081;
+
+    font-size: clamp(24px, 4vw, 32px);
 
     margin-bottom: 15px;
 }
 
+.pesan p {
+    margin-bottom: 0;
+}
 
-/* =========================
-   ANIMASI HATI
-========================= */
+
+/* =====================================
+   ANIMASI KARTU
+===================================== */
+
+@keyframes muncul {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================
+   ANIMASI PESAN
+===================================== */
+
+@keyframes pesanMuncul {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================
+   ANIMASI DENYUT
+===================================== */
+
+@keyframes berdenyut {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+
+/* =====================================
+   HATI TERBANG
+===================================== */
 
 .hearts {
     position: fixed;
@@ -183,34 +276,33 @@ button:active {
     z-index: 1;
 }
 
-
 .hearts span {
     position: absolute;
 
-    bottom: -60px;
+    bottom: -50px;
 
-    font-size: 25px;
+    font-size: 22px;
 
     opacity: 0;
 
-    animation: terbang 8s linear infinite;
+    animation: terbang 9s linear infinite;
 }
 
 
 /* Posisi hati */
 
 .hearts span:nth-child(1) {
-    left: 10%;
+    left: 8%;
     animation-delay: 0s;
 }
 
 .hearts span:nth-child(2) {
-    left: 25%;
+    left: 22%;
     animation-delay: 2s;
 }
 
 .hearts span:nth-child(3) {
-    left: 40%;
+    left: 38%;
     animation-delay: 4s;
 }
 
@@ -225,13 +317,13 @@ button:active {
 }
 
 .hearts span:nth-child(6) {
-    left: 85%;
+    left: 84%;
     animation-delay: 5s;
 }
 
 .hearts span:nth-child(7) {
-    left: 95%;
-    animation-delay: 6s;
+    left: 94%;
+    animation-delay: 6.5s;
 }
 
 
@@ -248,7 +340,11 @@ button:active {
     }
 
     15% {
-        opacity: 0.8;
+        opacity: 0.65;
+    }
+
+    80% {
+        opacity: 0.65;
     }
 
     100% {
@@ -261,61 +357,107 @@ button:active {
 }
 
 
-/* =========================
-   ANIMASI MUNCUL
-========================= */
+/* =====================================
+   TABLET
+===================================== */
 
-@keyframes muncul {
+@media (max-width: 768px) {
 
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(30px)
-            scale(0.9);
+    body {
+        padding: 16px;
     }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* =========================
-   ANIMASI DENYUT
-========================= */
-
-@keyframes berdenyut {
-
-    0%, 100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.15);
-    }
-}
-
-
-/* =========================
-   HP
-========================= */
-
-@media (max-width: 600px) {
 
     .container {
-        padding: 40px 20px;
+        padding: 40px 28px;
+
+        border-radius: 26px;
+    }
+}
+
+
+/* =====================================
+   HP
+===================================== */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 14px;
+    }
+
+    .halaman {
+        width: 100%;
+    }
+
+    .container {
+        padding: 34px 22px;
+
+        border-radius: 24px;
+    }
+
+    h1 {
+        font-size: 31px;
+
+        margin-bottom: 18px;
     }
 
     p {
         font-size: 17px;
+
+        line-height: 1.55;
+
+        margin-bottom: 24px;
     }
 
     .icon {
         font-size: 55px;
+
+        margin-bottom: 15px;
+    }
+
+    button {
+        padding: 13px 30px;
+
+        font-size: 17px;
+    }
+
+    .pesan {
+        margin-top: 25px;
+
+        padding-top: 22px;
+    }
+
+    .pesan h2 {
+        font-size: 25px;
+    }
+
+    .hearts span {
+        font-size: 18px;
+    }
+}
+
+
+/* =====================================
+   HP KECIL
+===================================== */
+
+@media (max-width: 360px) {
+
+    .container {
+        padding: 28px 18px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 12px 26px;
+
+        font-size: 16px;
     }
 }
