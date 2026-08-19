@@ -1,14 +1,14 @@
 function bukaWebsite() {
+    const pembuka = document.getElementById("pembuka");
+    const utama = document.getElementById("utama");
 
-    document.getElementById("pembuka").classList.add("hidden");
-
-    document.getElementById("utama").classList.remove("hidden");
-
+    pembuka.hidden = true;
+    utama.hidden = false;
 }
 
 
 function bukaPesan() {
+    const pesan = document.getElementById("pesan");
 
-    document.getElementById("pesan").classList.remove("hidden");
-
+    pesan.hidden = false;
 }
